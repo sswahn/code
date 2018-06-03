@@ -3,7 +3,7 @@
  * Reverse String 
  *
  * Function which reverses the order of the characters in a string
- * @params string $str the string to reverse
+ * @param string $str the string to reverse
  * @returns string $str the reversed string
  */
 
