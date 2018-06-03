@@ -32,7 +32,7 @@ function match(array $braces, array $available, array $opened, array $closed) : 
         return 'NO';
     }
     if (count($opened) > 1) {
-        $result = match($braces, $available, array_slice($opened, 0, -1) , array_slice($closed, 1));
+        match($braces, $available, array_slice($opened, 0, -1) , array_slice($closed, 1));
     }
     return 'YES';
 }
