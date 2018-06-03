@@ -46,7 +46,11 @@ function match(array $braces, array $available, array $opened, array $closed) : 
 
 
 function testValidity(array $braces, array $available, string $last_open, array $opened, array $closed) : bool {
-    // Check for unopened braces 
+    // check count is off
+    if (count($opened) !== count($closed)) {
+        return false;
+    }
+    // check for unopened braces 
     $is_opened = in_array(
         array_flip($available)[$closed[0]], 
         array_slice($braces, 0, array_search($closed[0], $braces)) 
