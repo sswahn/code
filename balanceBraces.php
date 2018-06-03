@@ -2,39 +2,39 @@
 
 function braceCheck(array $values): array {
     for ($i = 0; $i <= count($values) - 1; $i++) {
-		    $braces = str_split($values[$i]);
-			  $values[$i] = isValid($braces);
-		}
-		return $values;
+        $braces = str_split($values[$i]);
+	$values[$i] = isValid($braces);
+    }
+    return $values;
 }
 
 
 function isValid(array $braces) : string {
     $available = ['{' => '}', '(' => ')', '[' => ']'];
-		$opened = [];
-		$closed = [];
-		for ($i = 0; $i <= count($braces) - 1; $i++) {
-		    if (in_array($braces[$i], array_keys($available))) {
-				    $opened[] = $braces[$i];
-					  continue;
-				}
-				$closed[] = $braces[$i];
-		}
-		return match($braces, $available, $opened, $closed);
+    $opened = [];
+    $closed = [];
+    for ($i = 0; $i <= count($braces) - 1; $i++) {
+        if (in_array($braces[$i], array_keys($available))) {
+            $opened[] = $braces[$i];
+            continue;
+	}
+        $closed[] = $braces[$i];
+    }
+    return match($braces, $available, $opened, $closed);
 }
 
 
 function match($braces, array $available, array $opened, array $closed) : string {
     $last_open = $opened[count($opened) - 1];
-		$opened = array_values($opened);
-		$closed = array_values($closed);
-		if (!testValidity($braces, $available, $last_open, $opened, $closed)) {
-					return 'NO';
-		}
-		if (count($opened) > 1) {
-		    $result = match($braces, $available, array_slice($opened, 0, -1) , array_slice($closed, 1));
-		}
-		return 'YES';
+    $opened = array_values($opened);
+    $closed = array_values($closed);
+    if (!testValidity($braces, $available, $last_open, $opened, $closed)) {
+        return 'NO';
+    }
+    if (count($opened) > 1) {
+        $result = match($braces, $available, array_slice($opened, 0, -1) , array_slice($closed, 1));
+    }
+    return 'YES';
 }
 
 
