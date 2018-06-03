@@ -1,4 +1,11 @@
 <?php
+/**
+ * Reverse String 
+ *
+ * Function which reverses the order of the characters in a string
+ * @params string $str the string to reverse
+ * @returns string $str the reversed string
+ */
 
 function reverseString(string $str) : string {
     for($i = 0, $j = strlen($str) - 1; $i < strlen($str) / 2; $i++, $j--) {
