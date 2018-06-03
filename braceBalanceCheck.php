@@ -1,4 +1,11 @@
 <?php
+/**
+ * Brace Balance Check 
+ *
+ * Function which checks whether or not the braces in an array of strings are balanced
+ * @param array $values an array of strings containing braces
+ * @return array $values an array of strings containing YES or NO responses
+ */
 
 function braceBalanceCheck(array $values) : array {
     for ($i = 0; $i <= count($values) - 1; $i++) {
@@ -66,5 +73,5 @@ function testValidity(array $braces, array $available, string $last_open, array 
     return true; 
 } 
 
-$example_values = ['{[()]}', '{[(]}', '{}()[]', '{]}[']; // YES, NO, YES, NO 
-var_dump(braceBalanceCheck($example_values));
+
+var_dump(braceBalanceCheck(['{[()]}', '{[(]}', '{}()[]', '{]}['])); // YES, NO, YES, NO 
