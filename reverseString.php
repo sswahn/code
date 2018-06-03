@@ -4,7 +4,7 @@
  *
  * Function which reverses the order of the characters in a string
  * @param string $str the string to reverse
- * @returns string $str the reversed string
+ * @return string $str the reversed string
  */
 
 function reverseString(string $str) : string {
