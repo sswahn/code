@@ -24,7 +24,7 @@ function isValid(array $braces) : string {
 }
 
 
-function match($braces, array $available, array $opened, array $closed) : string {
+function match(array $braces, array $available, array $opened, array $closed) : string {
     $last_open = $opened[count($opened) - 1];
     $opened = array_values($opened);
     $closed = array_values($closed);
@@ -38,21 +38,24 @@ function match($braces, array $available, array $opened, array $closed) : string
 }
 
 
-function testValidity($braces, array $available, string $last_open, array $opened, array $closed) : bool {
+function testValidity(array $braces, array $available, string $last_open, array $opened, array $closed) : bool {
     // Check for unopened braces 
-    $is_opened = in_array( array_flip($available)[$closed[0]], array_slice($braces, 0, array_search($closed[0], $braces)) ); 
+    $is_opened = in_array(
+        array_flip($available)[$closed[0]], 
+        array_slice($braces, 0, array_search($closed[0], $braces)) 
+    ); 
     if (!$is_opened) { 
         return false; 
     } 
     // check if not nested properly 
     if ($available[$last_open] !== $closed[0]) { 
-        // check if the brackets are consecutive 
+        // check if consecutive 
         if ($available[$opened[0]] === $closed[0]) { 
             return true; 
         } 
         return false; 
     } 
-    // check if the brackets are not consecutive 
+    // check if not consecutive 
     if ($available[$opened[0]] !== $closed[0]) { 
         // check if nested properly 
         if ($available[$last_open] === $closed[0]) { 
