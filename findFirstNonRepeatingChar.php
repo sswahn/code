@@ -2,7 +2,11 @@
 /**
  * Find First Non-Repeating Character
  *
+ * Function which finds the first non-repeating character in a string
+ * @param string $str the string
+ * @return string $str the first non-repeating character
  */
+
 function findFirstNonRepeatingChar($str) {
     $store = [];
     
