@@ -9,7 +9,7 @@
 
 function findFirstNonRepeatingChar($str) {
     $store = [];
-    
+    // first find all repeating chars
     for ($i = 0; $i !== strlen($str) - 1; $i++) {
         for ($j = $i + 1; $j !== strlen($str) - 1; $j++) {
             if ($str[$i] === $str[$j]) {
@@ -17,7 +17,7 @@ function findFirstNonRepeatingChar($str) {
             }
         }
     }
-
+    // then find first non repeating char
     for ($k = 0; $k !== strlen($str) - 1; $k++) {
         if (!in_array($str[$k], $store)) {
             return $str[$k];
