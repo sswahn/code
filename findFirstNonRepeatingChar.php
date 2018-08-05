@@ -7,7 +7,7 @@
  * @return string $str the first non-repeating character
  */
 
-function findFirstNonRepeatingChar($str) {
+function findFirstNonRepeatingChar(string $str) : string {
     $store = [];
     // first find all repeating chars
     for ($i = 0; $i !== strlen($str) - 1; $i++) {
@@ -25,4 +25,4 @@ function findFirstNonRepeatingChar($str) {
     }
 }
 
-echo findFirstNonRepeatingChar('stress'); // t
+echo findFirstNonRepeatingChar('stress'); // 't'
