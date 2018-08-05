@@ -24,3 +24,5 @@ function findFirstNonRepeatingChar($str) {
         }   
     }
 }
+
+echo findFirstNonRepeatingChar('stress'); // t
