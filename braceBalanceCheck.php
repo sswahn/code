@@ -10,7 +10,7 @@
 function braceBalanceCheck(array $values) : array {
     for ($i = 0; $i <= count($values) - 1; $i++) {
         $braces = str_split($values[$i]);
-	$values[$i] = isValid($braces);
+        $values[$i] = isValid($braces);
     }
     return $values;
 }
