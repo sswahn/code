@@ -2,13 +2,13 @@
 /**
  * Least Common Value
  *
- * Finds the minimum intersecting values
- * or the least common values
+ * Finds the minimum intersecting or least common values
  * @param array
  * @param array
+ * @return int minimum intersecting value
  */
 
-function leastCommonValue($a, $b) {
+function leastCommonValue(array $a, array $b) : int {
   return min(array_intersect($a, $b));
 }
 
